@@ -109,7 +109,7 @@ for col in ["identity", "e_value", "alignment_length"]:
             similarity[col], errors="coerce"
         )
 
-return protein, similarity
+    return protein, similarity
 
 
 protein_df, similarity_df = load_data()
