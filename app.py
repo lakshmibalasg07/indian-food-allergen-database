@@ -83,28 +83,28 @@ def load_data():
 
    from pathlib import Path
 
-BASE_DIR = Path(__file__).parent
+    BASE_DIR = Path(__file__).parent
 
-protein = pd.read_excel(BASE_DIR / "Protein_information.xlsx")
-similarity = pd.read_excel(BASE_DIR / "Similarity_results.xlsx")
-protein.columns = (
+    protein = pd.read_excel(BASE_DIR / "Protein_information.xlsx")
+    similarity = pd.read_excel(BASE_DIR / "Similarity_results.xlsx")
+    protein.columns = (
         protein.columns.str.strip()
         .str.lower()
         .str.replace(r"[^a-z0-9]+", "_", regex=True)
     )
 
-similarity.columns = (
+    similarity.columns = (
         similarity.columns.str.strip()
         .str.lower()
         .str.replace(r"[^a-z0-9]+", "_", regex=True)
     )
 
-similarity.rename(
+    similarity.rename(
         columns={"alingment_length": "alignment_length"},
         inplace=True
     )
 
-for col in ["identity", "e_value", "alignment_length"]:
+    for col in ["identity", "e_value", "alignment_length"]:
         similarity[col] = pd.to_numeric(
             similarity[col], errors="coerce"
         )
