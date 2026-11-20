@@ -87,7 +87,7 @@ BASE_DIR = Path(__file__).parent
 
 protein = pd.read_excel(BASE_DIR / "Protein_information.xlsx")
 similarity = pd.read_excel(BASE_DIR / "Similarity_results.xlsx")
-    protein.columns = (
+protein.columns = (
         protein.columns.str.strip()
         .str.lower()
         .str.replace(r"[^a-z0-9]+", "_", regex=True)
