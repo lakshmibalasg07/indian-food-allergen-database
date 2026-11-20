@@ -81,14 +81,12 @@ matched_food_names = {
 @st.cache_data
 def load_data():
 
-    protein = pd.read_excel(
-        "/content/Protein_information.xlsx"
-    )
+   from pathlib import Path
 
-    similarity = pd.read_excel(
-        "/content/Similarity_results.xlsx"
-    )
+BASE_DIR = Path(__file__).parent
 
+protein = pd.read_excel(BASE_DIR / "Protein_information.xlsx")
+similarity = pd.read_excel(BASE_DIR / "Similarity_results.xlsx")
     protein.columns = (
         protein.columns.str.strip()
         .str.lower()
