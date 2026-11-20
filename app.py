@@ -80,8 +80,7 @@ matched_food_names = {
 
 @st.cache_data
 def load_data():
-
-   from pathlib import Path
+    from pathlib import Path
 
     BASE_DIR = Path(__file__).parent
 
